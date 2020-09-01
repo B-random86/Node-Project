@@ -13,11 +13,11 @@ require('./config/passport')(passport);
 // DB Config
 const db = require('./config/keys').MongoURI;
 
-// Connect to MongoDB
-mongoose.connect(db, { 
+// Connecting MongoDB
+mongoose.connect(db, {
     useNewUrlParser: true,
-    useUnifiedTopology: true}
-  )
+    useUnifiedTopology: true
+  })
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
 
@@ -27,7 +27,9 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 // Express body parser
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({
+  extended: true
+}));
 
 // Express session
 app.use(
